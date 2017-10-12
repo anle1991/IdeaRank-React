@@ -1,9 +1,11 @@
-##Idea Ranking Page
+# Idea Ranking Page
 
-How to run?
+## How to run?
 npm install
 npm run build
 npm start
 
-To enable watch:
+## To enable watch:
 npm run buld:watch
+
+An Le
