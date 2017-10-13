@@ -1,17 +1,12 @@
 import React from 'react';
 import Popup from './Popup';
-import fire from '../fire';
-import firebase from 'firebase';
+import Actions from '../../action';
+
 
 class LoginPopup extends React.Component{
   handleLogin = () =>{
-    var provider = new firebase.auth.FacebookAuthProvider();
-    firebase.auth().signInWithPopup(provider).then(function(authData) {
-    	console.log(authData);
-    }).catch(function(error) {
-    	console.log(error);
-    });
-
+    Actions.login();
+    this.props.hidePopup();
   }
 
   render(){
