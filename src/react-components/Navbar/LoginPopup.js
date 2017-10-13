@@ -4,7 +4,7 @@ import Popup from './Popup';
 class LoginPopup extends React.Component{
   render(){
     return (
-      <Popup {...this.props}>
+      <Popup {...this.props} style="login-popup">
         <img src="/img/kitty.png"></img>
         <h1>Login to Join The Community</h1>
         <p></p>

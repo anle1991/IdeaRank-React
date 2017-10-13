@@ -12,7 +12,7 @@ class HomePage extends React.Component {
           link: 'https://codecademy.com',
           media: '/img/codecademy.jpeg',
           upvote: 169,
-          description: 'Code for anyone',
+          description: 'Code for homeless',
           maker: {
             name: 'An',
             avatar: '/img/anquyle.jpg'
@@ -24,7 +24,7 @@ class HomePage extends React.Component {
           link: 'http://www.purehouselab.org/',
           media: '/img/purehouselab.png',
           upvote: 278,
-          description: 'Code for startups',
+          description: 'Too poor to buy a house',
           maker: {
             name: 'An',
             avatar: '/img/anquyle.jpg'
@@ -38,7 +38,6 @@ class HomePage extends React.Component {
     return (
       <section>
         <header>
-          <h1>Idea Rank</h1>
 
         </header>
 

@@ -20807,7 +20807,7 @@ var HomePage = function (_React$Component) {
         link: 'https://codecademy.com',
         media: '/img/codecademy.jpeg',
         upvote: 169,
-        description: 'Code for anyone',
+        description: 'Code for homeless',
         maker: {
           name: 'An',
           avatar: '/img/anquyle.jpg'
@@ -20818,7 +20818,7 @@ var HomePage = function (_React$Component) {
         link: 'http://www.purehouselab.org/',
         media: '/img/purehouselab.png',
         upvote: 278,
-        description: 'Code for startups',
+        description: 'Too poor to buy a house',
         maker: {
           name: 'An',
           avatar: '/img/anquyle.jpg'
@@ -20834,15 +20834,7 @@ var HomePage = function (_React$Component) {
       return _react2.default.createElement(
         'section',
         null,
-        _react2.default.createElement(
-          'header',
-          null,
-          _react2.default.createElement(
-            'h1',
-            null,
-            'Idea Rank'
-          )
-        ),
+        _react2.default.createElement('header', null),
         _react2.default.createElement(
           'section',
           null,
@@ -20861,12 +20853,14 @@ var HomePage = function (_React$Component) {
 
 exports.default = HomePage;
 
-},{"../Product/ProductList":187,"react":181}],183:[function(require,module,exports){
+},{"../Product/ProductList":189,"react":181}],183:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -20900,7 +20894,7 @@ var LoginPopup = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         _Popup2.default,
-        this.props,
+        _extends({}, this.props, { style: 'login-popup' }),
         _react2.default.createElement('img', { src: '/img/kitty.png' }),
         _react2.default.createElement(
           'h1',
@@ -20970,7 +20964,7 @@ var Popup = function (_React$Component) {
         ),
         _react2.default.createElement(
           "section",
-          { className: "popup-content login-popup" },
+          { className: "popup-content " + this.props.style },
           _react2.default.createElement(
             "section",
             null,
@@ -21002,6 +20996,225 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Popup = require('./Popup');
+
+var _Popup2 = _interopRequireDefault(_Popup);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var PostPoup = function (_React$Component) {
+  _inherits(PostPoup, _React$Component);
+
+  function PostPoup() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, PostPoup);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = PostPoup.__proto__ || Object.getPrototypeOf(PostPoup)).call.apply(_ref, [this].concat(args))), _this), _this.handlePost = function () {}, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(PostPoup, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _Popup2.default,
+        _extends({}, this.props, { style: 'post-popup' }),
+        _react2.default.createElement(
+          'header',
+          { className: 'post-header' },
+          'Post a new product'
+        ),
+        _react2.default.createElement(
+          'section',
+          null,
+          _react2.default.createElement(
+            'table',
+            null,
+            _react2.default.createElement(
+              'tbody',
+              null,
+              _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                  'td',
+                  null,
+                  'Name'
+                ),
+                _react2.default.createElement(
+                  'td',
+                  null,
+                  _react2.default.createElement('input', { placeholder: 'Enter product\'s name' })
+                )
+              ),
+              _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                  'td',
+                  null,
+                  'Description'
+                ),
+                _react2.default.createElement(
+                  'td',
+                  null,
+                  _react2.default.createElement('input', { placeholder: 'Enter product\'s description' })
+                )
+              ),
+              _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                  'td',
+                  null,
+                  'Link'
+                ),
+                _react2.default.createElement(
+                  'td',
+                  null,
+                  _react2.default.createElement('input', { placeholder: 'http://www...' })
+                )
+              ),
+              _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                  'td',
+                  null,
+                  'Media'
+                ),
+                _react2.default.createElement(
+                  'td',
+                  null,
+                  _react2.default.createElement('input', { placeholder: 'Direct link to an image' })
+                )
+              )
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'footer',
+          { className: 'post-footer' },
+          _react2.default.createElement(
+            'button',
+            { onClick: this.handlePost, className: 'post-btn' },
+            'Submit'
+          )
+        )
+      );
+    }
+  }]);
+
+  return PostPoup;
+}(_react2.default.Component);
+
+exports.default = PostPoup;
+
+},{"./Popup":184,"react":181}],186:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ProfileMenu = function (_React$Component) {
+  _inherits(ProfileMenu, _React$Component);
+
+  function ProfileMenu() {
+    _classCallCheck(this, ProfileMenu);
+
+    var _this = _possibleConstructorReturn(this, (ProfileMenu.__proto__ || Object.getPrototypeOf(ProfileMenu)).call(this));
+
+    _this.handleClick = function () {
+      if (_this.state.showProfileNav) {
+        _this.setState({ showProfileNav: false });
+      } else {
+        _this.setState({ showProfileNav: true });
+      }
+    };
+
+    _this.state = {
+      showProfileNav: false
+    };
+    return _this;
+  }
+
+  _createClass(ProfileMenu, [{
+    key: "renderProfileNav",
+    value: function renderProfileNav() {
+      return _react2.default.createElement(
+        "nav",
+        { className: "profile-nav", ref: "profileNav" },
+        _react2.default.createElement(
+          "a",
+          { href: "#" },
+          "My Profile"
+        ),
+        _react2.default.createElement(
+          "a",
+          { href: "#" },
+          "Logout"
+        )
+      );
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "section",
+        { className: "profile-menu" },
+        _react2.default.createElement("img", { src: "/img/anquyle.jpg", onClick: this.handleClick, className: "profile-btn medium-avatar", ref: "profileBtn" }),
+        this.state.showProfileNav ? this.renderProfileNav() : null
+      );
+    }
+  }]);
+
+  return ProfileMenu;
+}(_react2.default.Component);
+
+exports.default = ProfileMenu;
+
+},{"react":181}],187:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -21011,6 +21224,14 @@ var _react2 = _interopRequireDefault(_react);
 var _LoginPopup = require('./LoginPopup');
 
 var _LoginPopup2 = _interopRequireDefault(_LoginPopup);
+
+var _PostPopup = require('./PostPopup');
+
+var _PostPopup2 = _interopRequireDefault(_PostPopup);
+
+var _ProfileMenu = require('./ProfileMenu');
+
+var _ProfileMenu2 = _interopRequireDefault(_ProfileMenu);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21042,9 +21263,6 @@ var Navbar = function (_React$Component) {
     return _this;
   }
 
-  // Make it as properties of the class
-
-
   _createClass(Navbar, [{
     key: 'renderProductSearch',
     value: function renderProductSearch() {
@@ -21069,10 +21287,29 @@ var Navbar = function (_React$Component) {
       return _react2.default.createElement(
         'section',
         { className: 'right-side' },
-        _react2.default.createElement(
-          'a',
-          { href: '#', onClick: this.showPopup, className: 'login-btn' },
-          'LOGIN'
+        this.props.user ? _react2.default.createElement(
+          'section',
+          null,
+          _react2.default.createElement(
+            'span',
+            null,
+            _react2.default.createElement(
+              'a',
+              { href: '#', onClick: this.showPopup, className: 'login-btn' },
+              'POST'
+            ),
+            _react2.default.createElement(_ProfileMenu2.default, null)
+          ),
+          _react2.default.createElement(_PostPopup2.default, { status: this.state.popupStatus, hidePopup: this.hidePopup })
+        ) : _react2.default.createElement(
+          'section',
+          null,
+          _react2.default.createElement(
+            'a',
+            { href: '#', onClick: this.showPopup, className: 'login-btn' },
+            'LOGIN'
+          ),
+          _react2.default.createElement(_LoginPopup2.default, { status: this.state.popupStatus, hidePopup: this.hidePopup })
         )
       );
     }
@@ -21088,8 +21325,7 @@ var Navbar = function (_React$Component) {
           this.renderProductSearch(),
           this.renderLogo(),
           this.renderUser()
-        ),
-        _react2.default.createElement(_LoginPopup2.default, { status: this.state.popupStatus, hidePopup: this.hidePopup })
+        )
       );
     }
   }]);
@@ -21099,7 +21335,7 @@ var Navbar = function (_React$Component) {
 
 exports.default = Navbar;
 
-},{"./LoginPopup":183,"react":181}],186:[function(require,module,exports){
+},{"./LoginPopup":183,"./PostPopup":185,"./ProfileMenu":186,"react":181}],188:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -21202,7 +21438,7 @@ var ProductItem = function (_React$Component) {
 
 exports.default = ProductItem;
 
-},{"react":181}],187:[function(require,module,exports){
+},{"react":181}],189:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -21256,7 +21492,7 @@ var ProductList = function (_React$Component) {
 
 exports.default = ProductList;
 
-},{"./ProductItem":186,"react":181}],188:[function(require,module,exports){
+},{"./ProductItem":188,"react":181}],190:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -21300,7 +21536,7 @@ var App = function (_React$Component) {
       return _react2.default.createElement(
         'section',
         null,
-        _react2.default.createElement(_Navbar2.default, null),
+        _react2.default.createElement(_Navbar2.default, { user: true }),
         _react2.default.createElement(_HomePage2.default, null)
       );
     }
@@ -21311,4 +21547,4 @@ var App = function (_React$Component) {
 
 _reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('root'));
 
-},{"./HomePage":182,"./Navbar":185,"react":181,"react-dom":30}]},{},[188]);
+},{"./HomePage":182,"./Navbar":187,"react":181,"react-dom":30}]},{},[190]);
