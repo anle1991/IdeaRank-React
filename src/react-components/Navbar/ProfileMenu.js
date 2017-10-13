@@ -16,6 +16,20 @@ class ProfileMenu extends React.Component{
     }
   }
 
+  handleClickOutside = (e) =>{
+    if(e.target != this.refs.profileBtn){
+      this.setState({showProfileNav: false});
+    }
+  };
+
+  componentWillMount(){
+    window.addEventListener("click", this.handleClickOutside, false);
+  }
+
+  componentWillUnMount(){
+    window.removeEventListener("click", this.handleClickOutside, false);
+  }
+
   renderProfileNav(){
     return (
       <nav className="profile-nav" ref="profileNav">
