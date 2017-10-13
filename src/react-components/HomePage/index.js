@@ -1,37 +1,32 @@
 import React from 'react';
 import ProductList from '../Product/ProductList';
+import firebase from 'firebase';
+
+var config = {
+    apiKey: "AIzaSyAYNtFQO6DHnLNumEDuNCjqGYBXXjlfY7s",
+    authDomain: "idearank-47142.firebaseapp.com",
+    databaseURL: "https://idearank-47142.firebaseio.com",
+    projectId: "idearank-47142",
+    storageBucket: "idearank-47142.appspot.com",
+    messagingSenderId: "441163562896"
+  };
+firebase.initializeApp(config);
 
 class HomePage extends React.Component {
   constructor(){
     super();
     this.state = {
-      productList: [
-        {
-          id:1,
-          name: 'Codecademy',
-          link: 'https://codecademy.com',
-          media: '/img/codecademy.jpeg',
-          upvote: 169,
-          description: 'Code for homeless',
-          maker: {
-            name: 'An',
-            avatar: '/img/anquyle.jpg'
-          }
-        },
-        {
-          id:2,
-          name: 'Purehouse lab',
-          link: 'http://www.purehouselab.org/',
-          media: '/img/purehouselab.png',
-          upvote: 278,
-          description: 'Too poor to buy a house',
-          maker: {
-            name: 'An',
-            avatar: '/img/anquyle.jpg'
-          }
-        }
-      ]
+      productList: []
     }
+
+    var firebaseRef = firebase.database().ref('/products/');
+    firebaseRef.on('value', (snapshot) =>{
+      var products = snapshot.val();
+
+      this.setState({
+        productList: products
+      })
+    });
   }
 
   render(){
