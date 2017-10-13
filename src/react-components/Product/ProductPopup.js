@@ -38,20 +38,20 @@ class ProductPopup extends React.Component{
           <span>
             <i className="fa fa-sort-asc"></i>
           </span>
-          {this.state.product.upvote}
+          {this.props.product.upvote}
         </a>
       );
   }
 
   renderHeader(){
     return(
-      <header style={{backgroundImage: 'url(' + this.state.product.media + ')'}}>
+      <header style={{backgroundImage: 'url(' + this.props.product.media + ')'}}>
         <section className="header-shadow">
-          <h1>{this.state.product.name}</h1>
-          <p>{this.state.product.description}</p>
+          <h1>{this.props.product.name}</h1>
+          <p>{this.props.product.description}</p>
           <section>
             {this.renderUpvoteButton()}
-            <a className="getit-btn" href={this.state.product.link} target="_blank">GET IT</a>
+            <a className="getit-btn" href={this.props.product.link} target="_blank">GET IT</a>
           </section>
         </section>
 
