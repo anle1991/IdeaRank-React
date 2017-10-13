@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 
 class Popup extends React.Component{
   renderPopupContent(){
@@ -9,8 +9,9 @@ class Popup extends React.Component{
           <img src="/img/close.png" onClick={this.props.hidePopup}/>
         </section>
 
-        <section className="pop-content">
-          <section>POPUP CONTENT SHOULD BE HERE</section>
+        <section className="popup-content login-popup">
+          <section>{this.props.children}</section>
+            {/*Display all children of Popup class (whoever called it) */}
         </section>
       </section>
     );

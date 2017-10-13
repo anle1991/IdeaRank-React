@@ -38,7 +38,8 @@ class HomePage extends React.Component {
     return (
       <section>
         <header>
-          <img src="/img/banner.jpeg" width="100%"/>
+          <h1>Idea Rank</h1>
+
         </header>
 
         <section>

@@ -42,8 +42,8 @@ class ProductItem extends React.Component{
       <li className="product-item">
         {this.renderUpvoteButton()}
         <img className="product-item-media" src={this.props.media} />
-        {this.renderNewWindowIcon()}
         {this.renderInfoSession()}
+        {this.renderNewWindowIcon()}
       </li>
     );
   }
