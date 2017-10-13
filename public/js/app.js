@@ -45750,9 +45750,9 @@ var _ProductList = require('../Product/ProductList');
 
 var _ProductList2 = _interopRequireDefault(_ProductList);
 
-var _firebase = require('firebase');
+var _fire = require('../fire');
 
-var _firebase2 = _interopRequireDefault(_firebase);
+var _fire2 = _interopRequireDefault(_fire);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -45761,16 +45761,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var config = {
-  apiKey: "AIzaSyAYNtFQO6DHnLNumEDuNCjqGYBXXjlfY7s",
-  authDomain: "idearank-47142.firebaseapp.com",
-  databaseURL: "https://idearank-47142.firebaseio.com",
-  projectId: "idearank-47142",
-  storageBucket: "idearank-47142.appspot.com",
-  messagingSenderId: "441163562896"
-};
-_firebase2.default.initializeApp(config);
 
 var HomePage = function (_React$Component) {
   _inherits(HomePage, _React$Component);
@@ -45784,7 +45774,7 @@ var HomePage = function (_React$Component) {
       productList: []
     };
 
-    var firebaseRef = _firebase2.default.database().ref('/products/');
+    var firebaseRef = _fire2.default.database().ref('/products/');
     firebaseRef.on('value', function (snapshot) {
       var products = snapshot.val();
 
@@ -45820,7 +45810,7 @@ var HomePage = function (_React$Component) {
 
 exports.default = HomePage;
 
-},{"../Product/ProductList":348,"firebase":178,"react":340}],342:[function(require,module,exports){
+},{"../Product/ProductList":348,"../fire":351,"react":340}],342:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -45839,6 +45829,14 @@ var _Popup = require('./Popup');
 
 var _Popup2 = _interopRequireDefault(_Popup);
 
+var _fire = require('../fire');
+
+var _fire2 = _interopRequireDefault(_fire);
+
+var _firebase = require('firebase');
+
+var _firebase2 = _interopRequireDefault(_firebase);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -45851,9 +45849,24 @@ var LoginPopup = function (_React$Component) {
   _inherits(LoginPopup, _React$Component);
 
   function LoginPopup() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
     _classCallCheck(this, LoginPopup);
 
-    return _possibleConstructorReturn(this, (LoginPopup.__proto__ || Object.getPrototypeOf(LoginPopup)).apply(this, arguments));
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = LoginPopup.__proto__ || Object.getPrototypeOf(LoginPopup)).call.apply(_ref, [this].concat(args))), _this), _this.handleLogin = function () {
+      var provider = new _firebase2.default.auth.FacebookAuthProvider();
+      _firebase2.default.auth().signInWithPopup(provider).then(function (authData) {
+        console.log(authData);
+      }).catch(function (error) {
+        console.log(error);
+      });
+    }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(LoginPopup, [{
@@ -45871,7 +45884,7 @@ var LoginPopup = function (_React$Component) {
         _react2.default.createElement('p', null),
         _react2.default.createElement(
           'button',
-          { className: 'facebook-btn' },
+          { className: 'facebook-btn', onClick: this.handleLogin },
           'Login with Facebook'
         ),
         _react2.default.createElement(
@@ -45888,7 +45901,7 @@ var LoginPopup = function (_React$Component) {
 
 exports.default = LoginPopup;
 
-},{"./Popup":343,"react":340}],343:[function(require,module,exports){
+},{"../fire":351,"./Popup":343,"firebase":178,"react":340}],343:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -46723,7 +46736,7 @@ var App = function (_React$Component) {
       return _react2.default.createElement(
         'section',
         null,
-        _react2.default.createElement(_Navbar2.default, { user: true }),
+        _react2.default.createElement(_Navbar2.default, { user: false }),
         _react2.default.createElement(_HomePage2.default, null)
       );
     }
@@ -46734,4 +46747,28 @@ var App = function (_React$Component) {
 
 _reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('root'));
 
-},{"./HomePage":341,"./Navbar":346,"react":340,"react-dom":188}]},{},[350]);
+},{"./HomePage":341,"./Navbar":346,"react":340,"react-dom":188}],351:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _firebase = require("firebase");
+
+var _firebase2 = _interopRequireDefault(_firebase);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var config = {
+    apiKey: "AIzaSyAYNtFQO6DHnLNumEDuNCjqGYBXXjlfY7s",
+    authDomain: "idearank-47142.firebaseapp.com",
+    databaseURL: "https://idearank-47142.firebaseio.com",
+    projectId: "idearank-47142",
+    storageBucket: "idearank-47142.appspot.com",
+    messagingSenderId: "441163562896"
+};
+var fire = _firebase2.default.initializeApp(config);
+exports.default = fire;
+
+},{"firebase":178}]},{},[350]);

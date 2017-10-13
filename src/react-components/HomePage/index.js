@@ -1,16 +1,6 @@
 import React from 'react';
 import ProductList from '../Product/ProductList';
-import firebase from 'firebase';
-
-var config = {
-    apiKey: "AIzaSyAYNtFQO6DHnLNumEDuNCjqGYBXXjlfY7s",
-    authDomain: "idearank-47142.firebaseapp.com",
-    databaseURL: "https://idearank-47142.firebaseio.com",
-    projectId: "idearank-47142",
-    storageBucket: "idearank-47142.appspot.com",
-    messagingSenderId: "441163562896"
-  };
-firebase.initializeApp(config);
+import fire from '../fire';
 
 class HomePage extends React.Component {
   constructor(){
@@ -19,7 +9,7 @@ class HomePage extends React.Component {
       productList: []
     }
 
-    var firebaseRef = firebase.database().ref('/products/');
+    var firebaseRef = fire.database().ref('/products/');
     firebaseRef.on('value', (snapshot) =>{
       var products = snapshot.val();
 
